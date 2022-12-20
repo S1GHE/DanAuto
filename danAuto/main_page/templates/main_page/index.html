@@ -1,13 +1,120 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="{% static 'main_page/CSS/style.css' %}" rel="stylesheet">
     <script type="text/javascript" src="{% static 'main_page/JS/app.js' %}"></script>
     <title>Главная страница</title>
 </head>
 <body>
-    <h1>Главная страница</h1>
+    <main class="container">
+        <header class="head-menu d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 container">
+          <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+              <img src="{% static 'main_page/Image/Логотип.svg' %}", alt="логотип" height="32">
+          </a>
+
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="px-2">Главная</a></li>
+            <li><a href="#" class="px-2">Каталог</a></li>
+            <li><a href="#" class="px-2">Оформить заказ</a></li>
+            <li><a href="#" class="px-2">Информация о нас</a></li>
+          </ul>
+        </header>
+        <section class="sec-o container">
+            <section class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                  <div class="sec_img col-10 col-sm-8 col-lg-6">
+                      <img src="{% static 'main_page/Image/Двигатель.png' %}" class="d-block mx-lg-auto img-fluid" alt="Мотор" width="624" height="582">
+                  </div>
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">МАГАЗИН <span class="sp-yellow">ДАН АВТО</span></h1>
+                    <p>Занимаемся продажей запчастей, кузовных деталей, масел,
+                        автокосметики и прочих расходников, необходимых для вашего автомобиля!</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                          <button type="button" class="btn-yellow-m btn-lg px-4 me-md-2">Оформить заказ</button>
+                          <button type="button" class="btn-outyellow-m btn-lg px-4">Связаться с нами</button>
+                    </div>
+                </div>
+                <footer>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+                      <div class="col d-flex align-items-start">
+                          <img class="bi text-muted flex-shrink-0 me-3"
+                               src="{% static 'main_page/Image/Разделитель.svg' %}" height="75">
+                        <div>
+                          <h4 class="fw-bold mb-0">Большой выбор</h4>
+                          <p>Большой выбор, комплектующих для вашего автомобиля.</p>
+                        </div>
+                      </div>
+                      <div class="col d-flex align-items-start">
+                          <img class="bi text-muted flex-shrink-0 me-3"
+                               src="{% static 'main_page/Image/Разделитель.svg' %}" height="75">
+                        <div>
+                          <h4 class="fw-bold mb-0">Гарантия</h4>
+                          <p>Наш магазин гарантирует качество комплектующих</p>
+                        </div>
+                      </div>
+                      <div class="col d-flex align-items-start">
+                          <img class="bi text-muted flex-shrink-0 me-3"
+                               src="{% static 'main_page/Image/Разделитель.svg' %}" height="75">
+                        <div>
+                          <h4 class="fw-bold mb-0">Под заказ</h4>
+                          <p>Если вы не нашли интересующий вас товар, то вы можете его заказать</p>
+                        </div>
+                      </div>
+                      <div class="col d-flex align-items-start">
+                          <img class="bi text-muted flex-shrink-0 me-3"
+                               src="{% static 'main_page/Image/Разделитель.svg' %}" height="75">
+                        <div>
+                          <h4 class="fw-bold mb-0">Честность</h4>
+                          <p>Мы продаем, только оригинальные комплектующие</p>
+                        </div>
+                      </div>
+                    </div>
+                </footer>
+                </footer>
+            </section>
+        </section>
+        <section>
+            <div class="row mb-3 flex-lg-row align-items-center g-5 py-5">
+              <div class="col-md-4 themed-grid-col">
+                  <h2 class="display-5 fw-bold lh-1 mb-3">ОФОРМИТЬ <span class="sp-yellow">ЗАКАЗ</span></h2>
+                  <p>Здесь вы можете, заполнив данные, оформить заказ на интересующую вас деталь для вашего автомобиля</p>
+              </div>
+              <div class="col-md-8 themed-grid-col">
+                  <form class="form-v">
+                      <div class="row g-3">
+                        <h4>Личная информация</h4>
+
+                        <div class="col-sm-4">
+                          <label>Имя</label>
+                          <input type="text" class="form-c" id="firstName">
+                        </div>
+
+                        <div class="col-sm-4">
+                          <label>Фамилия</label>
+                          <input type="text" class="form-c" id="lastName">
+                          <div class="invalid-feedback">
+                            Valid last name is required.
+                          </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                          <label>Отчество</label>
+                          <input type="text" class="form-c" id="lastName">
+                          <div class="invalid-feedback">
+                            Valid last name is required.
+                          </div>
+                        </div>
+
+                      <h4>Контактная информация</h4>
+
+                      <hr class="my-4">
+                      <button class="w-100 btn-yellow-m btn-lg" type="submit">Оформить заказ</button>
+                  </form>
+              </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
