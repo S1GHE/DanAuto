@@ -2,119 +2,195 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="text/css" href="{% static 'main_page/CSS/style.css' %}" rel="stylesheet">
-    <script type="text/javascript" src="{% static 'main_page/JS/app.js' %}"></script>
-    <title>Главная страница</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link type="text/css" href="{% static 'main_page/CSS/styleMain.css' %}" rel="stylesheet">
+	<script type="text/javascript" src="{% static 'main_page/JS/app.js' %}"></script>
+	<title>Главная страница</title>
 </head>
 <body>
-    <main class="container">
-        <header class="head-menu d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 container">
-          <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-              <img src="{% static 'main_page/Image/Логотип.svg' %}", alt="логотип" height="32">
-          </a>
+<header class="top-nav">
+	<div>
+		<a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+			<img src="{% static 'main_page/Image/Логотип.svg' %}" alt="логотип" class="img-menu">
+		</a>
+	</div>
+	<input id="menu-toggle" type="checkbox"/>
+	<label class='menu-button-container' for="menu-toggle">
+		<div class='menu-button'></div>
+	</label>
+	<ul class="menu">
+		<li><a href="#" class="head-m-a">Главная</a></li>
+		<li><a href="#" class="head-m-a">Каталог</a></li>
+		<li><a href="#" class="head-m-a">Оформить заказ</a></li>
+		<li><a href="#" class="head-m-a">Информация о нас</a></li>
+		<li><a href="#" class="head-m-a">Связаться с нами</a></li>
+	</ul>
+</header>
+<main class="container">
+	<section class="sec-o container">
+		<section class="row flex-lg-row-reverse align-items-center  py-5">
+			<div class="sec_img col-10 col-sm-8 col-lg-6">
+				<img src="{% static 'main_page/Image/Двигатель.png' %}" class="d-block mx-lg-auto img-fluid" alt="Мотор"
+					 width="624" height="582">
+			</div>
+			<div class="col-lg-6">
+				<h1 class="display-5 fw-bold lh-1 mb-3">МАГАЗИН <span class="sp-yellow">ДАН АВТО</span></h1>
+				<p>Занимаемся продажей запчастей, кузовных деталей, масел,
+					автокосметики и прочих расходников, необходимых для вашего автомобиля!</p>
+				<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+					<button type="button" class="btn-yellow-m btn-lg px-4 me-md-2">Оформить заказ</button>
+					<button type="button" class="btn-outyellow-m btn-lg px-4">Связаться с нами</button>
+				</div>
+			</div>
+			<footer>
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+					<div class="col d-flex align-items-start">
+						<img class="bi text-muted flex-shrink-0 me-3"
+							 src="{% static 'main_page/Image/Разделитель.svg' %}" height="75">
+						<div>
+							<h4 class="fw-bold mb-0">Большой выбор</h4>
+							<p>Большой выбор, комплектующих для вашего автомобиля.</p>
+						</div>
+					</div>
+					<div class="col d-flex align-items-start">
+						<img class="bi text-muted flex-shrink-0 me-3"
+							 src="{% static 'main_page/Image/Разделитель.svg' %}" height="75">
+						<div>
+							<h4 class="fw-bold mb-0">Гарантия</h4>
+							<p>Наш магазин гарантирует качество комплектующих</p>
+						</div>
+					</div>
+					<div class="col d-flex align-items-start">
+						<img class="bi text-muted flex-shrink-0 me-3"
+							 src="{% static 'main_page/Image/Разделитель.svg' %}" height="75">
+						<div>
+							<h4 class="fw-bold mb-0">Под заказ</h4>
+							<p>Если вы не нашли интересующий вас товар, то вы можете его заказать</p>
+						</div>
+					</div>
+					<div class="col d-flex align-items-start">
+						<img class="bi text-muted flex-shrink-0 me-3"
+							 src="{% static 'main_page/Image/Разделитель.svg' %}" height="75">
+						<div>
+							<h4 class="fw-bold mb-0">Честность</h4>
+							<p>Мы продаем, только оригинальные комплектующие</p>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</section>
+	</section>
+	<section>
+		<div class="row mb-3 flex-lg-row align-items-center g-5 py-5">
+			<div class="col-md-4 themed-grid-col">
+				<h2 class="display-5 fw-bold lh-1 mb-3">ОФОРМИТЬ <span class="sp-yellow">ЗАКАЗ</span></h2>
+				<p>Здесь вы можете, заполнив данные, оформить заказ на интересующую вас деталь для вашего автомобиля</p>
+			</div>
+			<div class="col-md-8 themed-grid-col">
+				<form class="form-v-c" method="post" onclick="return validateForm();">
+					<div class="row g-3">
+						<h4>Личная информация</h4>
 
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="px-2">Главная</a></li>
-            <li><a href="#" class="px-2">Каталог</a></li>
-            <li><a href="#" class="px-2">Оформить заказ</a></li>
-            <li><a href="#" class="px-2">Информация о нас</a></li>
-          </ul>
-        </header>
-        <section class="sec-o container">
-            <section class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                  <div class="sec_img col-10 col-sm-8 col-lg-6">
-                      <img src="{% static 'main_page/Image/Двигатель.png' %}" class="d-block mx-lg-auto img-fluid" alt="Мотор" width="624" height="582">
-                  </div>
-                <div class="col-lg-6">
-                    <h1 class="display-5 fw-bold lh-1 mb-3">МАГАЗИН <span class="sp-yellow">ДАН АВТО</span></h1>
-                    <p>Занимаемся продажей запчастей, кузовных деталей, масел,
-                        автокосметики и прочих расходников, необходимых для вашего автомобиля!</p>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                          <button type="button" class="btn-yellow-m btn-lg px-4 me-md-2">Оформить заказ</button>
-                          <button type="button" class="btn-outyellow-m btn-lg px-4">Связаться с нами</button>
-                    </div>
-                </div>
-                <footer>
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
-                      <div class="col d-flex align-items-start">
-                          <img class="bi text-muted flex-shrink-0 me-3"
-                               src="{% static 'main_page/Image/Разделитель.svg' %}" height="75">
-                        <div>
-                          <h4 class="fw-bold mb-0">Большой выбор</h4>
-                          <p>Большой выбор, комплектующих для вашего автомобиля.</p>
-                        </div>
-                      </div>
-                      <div class="col d-flex align-items-start">
-                          <img class="bi text-muted flex-shrink-0 me-3"
-                               src="{% static 'main_page/Image/Разделитель.svg' %}" height="75">
-                        <div>
-                          <h4 class="fw-bold mb-0">Гарантия</h4>
-                          <p>Наш магазин гарантирует качество комплектующих</p>
-                        </div>
-                      </div>
-                      <div class="col d-flex align-items-start">
-                          <img class="bi text-muted flex-shrink-0 me-3"
-                               src="{% static 'main_page/Image/Разделитель.svg' %}" height="75">
-                        <div>
-                          <h4 class="fw-bold mb-0">Под заказ</h4>
-                          <p>Если вы не нашли интересующий вас товар, то вы можете его заказать</p>
-                        </div>
-                      </div>
-                      <div class="col d-flex align-items-start">
-                          <img class="bi text-muted flex-shrink-0 me-3"
-                               src="{% static 'main_page/Image/Разделитель.svg' %}" height="75">
-                        <div>
-                          <h4 class="fw-bold mb-0">Честность</h4>
-                          <p>Мы продаем, только оригинальные комплектующие</p>
-                        </div>
-                      </div>
-                    </div>
-                </footer>
-                </footer>
-            </section>
-        </section>
-        <section>
-            <div class="row mb-3 flex-lg-row align-items-center g-5 py-5">
-              <div class="col-md-4 themed-grid-col">
-                  <h2 class="display-5 fw-bold lh-1 mb-3">ОФОРМИТЬ <span class="sp-yellow">ЗАКАЗ</span></h2>
-                  <p>Здесь вы можете, заполнив данные, оформить заказ на интересующую вас деталь для вашего автомобиля</p>
-              </div>
-              <div class="col-md-8 themed-grid-col">
-                  <form class="form-v">
-                      <div class="row g-3">
-                        <h4>Личная информация</h4>
+						<div class="col-sm-4">
+							<label>Имя</label>
+							<input type="text" class="form-c" id="firstName">
+						</div>
 
-                        <div class="col-sm-4">
-                          <label>Имя</label>
-                          <input type="text" class="form-c" id="firstName">
-                        </div>
+						<div class="col-sm-4">
+							<label>Фамилия</label>
+							<input type="text" class="form-c" id="lastName">
+						</div>
 
-                        <div class="col-sm-4">
-                          <label>Фамилия</label>
-                          <input type="text" class="form-c" id="lastName">
-                          <div class="invalid-feedback">
-                            Valid last name is required.
-                          </div>
-                        </div>
+						<div class="col-sm-4">
+							<label>Отчество</label>
+							<input type="text" class="form-c" id="lastName">
+						</div>
 
-                        <div class="col-sm-4">
-                          <label>Отчество</label>
-                          <input type="text" class="form-c" id="lastName">
-                          <div class="invalid-feedback">
-                            Valid last name is required.
-                          </div>
-                        </div>
+						<h4>Контактная информация</h4>
 
-                      <h4>Контактная информация</h4>
+						<div class="col-sm-4">
+							<label>Номер телефона</label>
+							<input type="text" class="form-c" id="Number">
+						</div>
 
-                      <hr class="my-4">
-                      <button class="w-100 btn-yellow-m btn-lg" type="submit">Оформить заказ</button>
-                  </form>
-              </div>
-            </div>
-        </section>
-    </main>
+						<div class="col-sm-4">
+							<label>Почта</label>
+							<input type="text" class="form-c" id="email" placeholder="example@gmail.com">
+						</div>
+
+						<div class="col-sm-4">
+							<label>Ccылка на мессенджер</label>
+							<input type="text" class="form-c" id="mess">
+						</div>
+
+						<h4>Информация о заказе</h4>
+						<div class="col-sm-8">
+							<label>Информация о заказе:</label>
+							<textarea class="input-text-area">
+
+							</textarea>
+						</div>
+
+						<div class="col-sm-4">
+							<label>Марка автомбиля:</label>
+							<input type="text" class="form-c" id="carModel">
+
+							<label>Модель автомобиля:</label>
+							<input type="text" class="form-c" id="automobileModel">
+
+							<label>Год автомобиля:</label>
+							<input type="text" class="form-c" id="vehicleYear">
+
+							<label>Количество лошадиных сил:</label>
+							<input type="text" class="form-c" id="Horsepower">
+
+							<label>VIN автомобиля:</label>
+							<input type="text" class="form-c" id="VIN">
+						</div>
+
+
+						<hr class="my-4">
+						<button class="w-100 btn-yellow-m btn-lg" type="submit">Оформить заказ</button>
+				</form>
+			</div>
+		</div>
+	</section>
+	<section>
+		<h2 class="display-5 fw-bold lh-1 mb-3">ИНФОРМАЦИЯ <span class="sp-yellow">О НАС</span></h2>
+		<div class="row g-3">
+			<div class="col-lg-6">
+				<h4>Где мы находимся?</h4>
+				<p>Мы находимся по адресу: респ. Татарстан, г. Альметьевск , Ул. Шевченко, д. 162а</p>
+				<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+					<button type="button" class="btn-yellow-m btn-lg px-4 me-md-2">Открыть 2Гис</button>
+					<button type="button" class="btn-outyellow-m btn-lg px-4">Открыть Яндекс Карты</button>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<h4>Связаться с нами</h4>
+				<p>Связаться с нашим менеджером, вы можете в самых популярных мессенджерах!</p>
+				<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+					<button type="button" class="btn-yellow-m btn-lg px-4 me-md-2">Telegramm</button>
+					<button type="button" class="btn-outyellow-m btn-lg px-4">Whats app</button>
+				</div>
+			</div>
+		</div>
+		<div class="map">
+			<script type="text/javascript" charset="utf-8" async
+					src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A8754927c2f1f357b7e484b983117f5975c39ad4a7950c36c284bd7b5d62c124a&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true">
+			</script>
+		</div>
+	</section>
+</main>
+<footer class="foot-o">
+	<div class="container">
+		<div class="text-center foot-p">
+			<p>ИП Габдрашитов Данис Валерикович</p>
+			<hr style="color: #FFFFFF">
+			<p>Тел: 89600894444 email: Danis-13@mail.ru Адрес: респ. Татарстан, г. Альметьевск , Ул. Шевченко, д. 162а</p>
+		</div>
+	</div>
+</footer>
 </body>
 </html>
