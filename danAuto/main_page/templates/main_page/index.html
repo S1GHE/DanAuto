@@ -21,7 +21,7 @@
 	</label>
 	<ul class="menu">
 		<li><a href="#" class="head-m-a">Главная</a></li>
-		<li><a href="#" class="head-m-a">Каталог</a></li>
+		<li><a href="/catalog" class="head-m-a">Каталог</a></li>
 		<li><a href="#" class="head-m-a">Оформить заказ</a></li>
 		<li><a href="#" class="head-m-a">Информация о нас</a></li>
 		<li><a href="#" class="head-m-a">Связаться с нами</a></li>
@@ -88,65 +88,100 @@
 				<p>Здесь вы можете, заполнив данные, оформить заказ на интересующую вас деталь для вашего автомобиля</p>
 			</div>
 			<div class="col-md-8 themed-grid-col">
-				<form class="form-v-c" method="post" onclick="return validateForm();">
+				<form class="form-v-c" method="post" action="{% url 'main_page' %}">
 					<div class="row g-3">
+						{% csrf_token %}
 						<h4>Личная информация</h4>
 
 						<div class="col-sm-4">
-							<label>Имя</label>
-							<input type="text" class="form-c" id="firstName">
+							<label for="{{ form.name.id_for_lable }}">{{form.name.label}}</label>
+							{{ form.name }}
+							<div>
+								{{form.name.errors}}
+							</div>
 						</div>
 
 						<div class="col-sm-4">
-							<label>Фамилия</label>
-							<input type="text" class="form-c" id="lastName">
+							<label for="{{ form.last_name.id_for_lable }}">{{form.last_name.label}}</label>
+							{{ form.last_name }}
+							<div>
+								{{form.last_name.errors}}
+							</div>
 						</div>
 
 						<div class="col-sm-4">
-							<label>Отчество</label>
-							<input type="text" class="form-c" id="lastName">
+							<label for="{{ form.middle_name.id_for_lable }}">{{form.middle_name.label}}</label>
+							{{ form.middle_name }}
+							<div>
+								{{form.middle_name.errors}}
+							</div>
 						</div>
 
 						<h4>Контактная информация</h4>
 
 						<div class="col-sm-4">
-							<label>Номер телефона</label>
-							<input type="text" class="form-c" id="Number">
+							<label for="{{ form.telephone_number.id_for_lable }}">{{form.telephone_number.label}}</label>
+							{{ form.telephone_number }}
+							<div>
+								{{form.telephone_number.errors}}
+							</div>
 						</div>
 
 						<div class="col-sm-4">
-							<label>Почта</label>
-							<input type="text" class="form-c" id="email" placeholder="example@gmail.com">
+							<label for="{{ form.email.id_for_lable }}">{{form.email.label}}</label>
+							{{ form.email }}
+							<div>
+								{{form.email.errors}}
+							</div>
 						</div>
 
 						<div class="col-sm-4">
-							<label>Ccылка на мессенджер</label>
-							<input type="text" class="form-c" id="mess">
+							<label for="{{ form.link_messenger.id_for_lable }}">{{form.link_messenger.label}}</label>
+							{{ form.link_messenger }}
+							<div>
+								{{form.link_messenger.errors}}
+							</div>
 						</div>
 
 						<h4>Информация о заказе</h4>
 						<div class="col-sm-8">
-							<label>Информация о заказе:</label>
-							<textarea class="input-text-area">
-
-							</textarea>
+							<label for="{{ form.info_order.id_for_lable }}">{{form.info_order.label}}</label>
+							{{ form.info_order }}
+							<div>
+								{{form.info_order.errors}}
+							</div>
 						</div>
 
 						<div class="col-sm-4">
-							<label>Марка автомбиля:</label>
-							<input type="text" class="form-c" id="carModel">
+							<label for="{{ form.car_brand.id_for_lable }}">{{form.car_brand.label}}</label>
+							{{ form.car_brand }}
+							<div>
+								{{form.car_brand.errors}}
+							</div>
 
-							<label>Модель автомобиля:</label>
-							<input type="text" class="form-c" id="automobileModel">
+							<label for="{{ form.car_model.id_for_lable }}">{{form.car_model.label}}</label>
+							{{ form.car_model }}
+							<div>
+								{{form.car_model.errors}}
+							</div>
 
-							<label>Год автомобиля:</label>
-							<input type="text" class="form-c" id="vehicleYear">
+							<label for="{{ form.car_year.id_for_lable }}">{{form.car_year.label}}</label>
+							{{ form.car_year }}
+							<div>
+								{{form.car_year.errors}}
+							</div>
 
-							<label>Количество лошадиных сил:</label>
-							<input type="text" class="form-c" id="Horsepower">
+							<label for="{{ form.car_horsepower.id_for_lable }}">{{form.car_horsepower.label}}</label>
+							{{ form.car_horsepower }}
+							<div>
+								{{form.car_horsepower.errors}}
+							</div>
 
-							<label>VIN автомобиля:</label>
-							<input type="text" class="form-c" id="VIN">
+							<label for="{{ form.car_vin.id_for_lable }}">{{form.car_vin.label}}</label>
+							{{ form.car_vin }}
+							<div>
+								{{form.car_vin.errors}}
+							</div>
 						</div>
 
 
@@ -171,7 +206,7 @@
 				<h4>Связаться с нами</h4>
 				<p>Связаться с нашим менеджером, вы можете в самых популярных мессенджерах!</p>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-start">
-					<button type="button" class="btn-yellow-m btn-lg px-4 me-md-2">Telegramm</button>
+					<button type="button" class="btn-yellow-m btn-lg px-4 me-md-2">Telegram</button>
 					<button type="button" class="btn-outyellow-m btn-lg px-4">Whats app</button>
 				</div>
 			</div>
@@ -188,7 +223,8 @@
 		<div class="text-center foot-p">
 			<p>ИП Габдрашитов Данис Валерикович</p>
 			<hr style="color: #FFFFFF">
-			<p>Тел: 89600894444 email: Danis-13@mail.ru Адрес: респ. Татарстан, г. Альметьевск , Ул. Шевченко, д. 162а</p>
+			<p>Тел: 89600894444 email: Danis-13@mail.ru Адрес: респ. Татарстан, г. Альметьевск , Ул. Шевченко, д.
+				162а</p>
 		</div>
 	</div>
 </footer>
